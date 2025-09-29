@@ -1,7 +1,10 @@
-import sequelize from "sequelize";
-import { Sequelize } from "../config/database.cjs";
+import { Sequelize } from "sequelize";
+import sequelize from "../config/database.cjs";
 
-// 1 : m
+import Task from "./task.model.cjs";
+import TaskItem from "./taskItems.model.cjs";
+
+// Associations
 Task.hasMany(TaskItem, { foreignKey: "taskId", as: "items" });
 TaskItem.belongsTo(Task, { foreignKey: "taskId", as: "task" });
 

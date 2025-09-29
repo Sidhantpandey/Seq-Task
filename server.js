@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 import morgan from "morgan"
 import cookieParser from "cookie-parser"
 import sequelize from "./config/database.cjs"
-
 dotenv.config()
 
 const port=process.env.PORT || 3000;
@@ -16,7 +15,7 @@ app.use(morgan('dev'));
 
 //Importing the routes
 import taskRoutes from "./routes/task.routes.js"
-app.use("/api",taskRoutes);
+app.use("/api/v1",taskRoutes);
 
 
 app.get("/",(req,res)=>{
