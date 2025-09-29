@@ -26,8 +26,9 @@ export const taskCreate = asyncHandler(async (req, res, next) => {
     await TaskItem.bulkCreate(items, { transaction: tx });
 
     await tx.commit();
-
-    throw new ApiResponse(201, "Record Saved Successfully");
+    return res
+      .status(201)
+      .json({ success: true, message: "Records Saved Successfully" });
   } catch (error) {
     await tx.rollback();
     console.error(error);
@@ -36,10 +37,10 @@ export const taskCreate = asyncHandler(async (req, res, next) => {
 });
 
 export const getAllTasksWithItems = asyncHandler(async (req, res) => {
-  const tasks = Task.findAll({
+  const tasks = await Task.findAll({
     include: [
       {
-        model: "TaskItem",
+        model: TaskItem,
         as: "items",
       },
     ],

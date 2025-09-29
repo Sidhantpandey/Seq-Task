@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database.cjs");
 
 const Task = sequelize.define(
-  "Task",
+  "Tasks",
   {
     id: {
       type: DataTypes.BIGINT,

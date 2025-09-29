@@ -4,6 +4,6 @@ import * as taskController from "../controllers/task.controller.js"
 const router= express.Router()
 
 router.route("/create").post(taskController.taskCreate);
-router.route("/getData").post(taskController.getAllTasksWithItems);
+router.route("/getData").get(taskController.getAllTasksWithItems);
 
 export default router;

@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("TableItems", {
+    await queryInterface.createTable("TaskItems", {
       id: {
         type: Sequelize.BIGINT,
         autoIncrement: true,
@@ -14,7 +14,7 @@ module.exports = {
         type: Sequelize.BIGINT,
         allowNull: false,
         references: {
-          model: "Task",
+          model: "Tasks",
           key: "id",
         },
         onDelete: "CASCADE",
@@ -46,6 +46,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("TableItems");
+    await queryInterface.dropTable("TaskItems");
   },
 };

@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Task", {
+    await queryInterface.createTable("Tasks", {
       id: {
         type: Sequelize.BIGINT,
         autoIncrement: true,
@@ -45,6 +45,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Task"); // Drop the 'task' table, not 'users'
+    await queryInterface.dropTable("Tasks"); // Drop the 'task' table, not 'users'
   },
 };
